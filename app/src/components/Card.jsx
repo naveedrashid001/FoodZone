@@ -3,7 +3,7 @@ import './Card.css';
 
 function Card({ name, price, text, image }) {
   const imageUrl = `http://localhost:9000${image}`;
-  
+  // console.log({name})
   return (
     <div className="custom-card">
       <div className="row g-0 align-items-center">
