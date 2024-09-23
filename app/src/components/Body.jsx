@@ -2,43 +2,43 @@ import React, { useState, useEffect } from 'react';
 import './MainBody.css';
 import Card from './Card';
 
-// import axios from 'axios';
-
-
-function Body() {
+function Body({ searchTerm, selectedCategory }) {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // console.log(foodData);
 
-  // Fetch data from the server
+
   useEffect(() => {
     fetch('http://localhost:9000')
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setFoodData(data);
-        setLoading(false); // Add this line
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        setLoading(false); // Add this line to handle errors
+        setLoading(false);
       });
-  
-      // console.log(foodData);
-
-    // If you're using axios
-    // axios.get('http://localhost:9000')
-    //   .then((response) => setFoodData(response.data))
-    //   .catch((error) => console.error('Error fetching data:', error));
   }, []);
-  console.log(foodData);
+
+  // Filter the food data based on search term and selected category
+  const filteredData = foodData.filter((item) => {
+    const matchesSearchTerm = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || item.type === selectedCategory;
+    // console.log(`Item: ${item.name}, Matches Search: ${matchesSearchTerm}, Matches Category: ${matchesCategory}`);
+
+    return matchesSearchTerm && matchesCategory;
+  });
 
   return (
     <div className='main'>
-      {loading ? ( // Use a conditional operator
+      {loading ? (
         <div className='text-white'>Loading...</div>
       ) : (
         <div className='AllCard mt-3'>
-          {foodData.map((item, index) => (
+          {filteredData.map((item, index) => (
             <Card
               key={index}
               name={item.name}
@@ -52,7 +52,6 @@ function Body() {
       )}
     </div>
   );
-  
 }
 
 export default Body;
