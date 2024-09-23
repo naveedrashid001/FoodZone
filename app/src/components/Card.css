@@ -1,0 +1,47 @@
+/* Card container with fixed width and background */
+.custom-card {
+  width: 340px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  background: 
+    radial-gradient(80.38% 222.5% at -13.75% -12.36%, #98F9FF 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(80.69% 208.78% at 108.28% 112.58%, #EABFFF 0%, rgba(135, 38, 183, 0) 100%);
+  border: 0.66px solid;
+  border-image-source: 
+    radial-gradient(80.38% 222.5% at -13.75% -12.36%, #98F9FF 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(80.69% 208.78% at 108.28% 112.58%, #EABFFF 0%, rgba(135, 38, 183, 0) 100%);
+  border-image-slice: 1;
+  border-radius: 5%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Heading styling */
+.custom-card h3 {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 5px;
+  white-space: nowrap; /* Ensure h3 is on a single line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Text inside the card */
+.custom-card p {
+  color: white;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+/* Button styling */
+.custom-card button {
+  width: 100px;
+  font-size: 0.9rem;
+}
+
+/* Image inside the card */
+.custom-card img {
+  border-radius: 8px;
+}

@@ -1,0 +1,44 @@
+/* Remove default margins and padding */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.main {
+  margin-top: 0; /* Ensure no margin at the top */
+  padding-top: 0; /* Ensure no padding at the top */
+  width: 100%;
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  padding-left: 20px; /* Left padding */
+  padding-right: 20px; /* Right padding */
+  padding-bottom: 20px; /* Bottom padding */
+  display: flex;
+  justify-content: center; /* Align cards horizontally center */
+  align-items: center; /* Align cards vertically center */
+  min-height: 100vh; /* Ensure the main content fills the height */
+}
+
+/* Card container styling */
+.AllCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Align cards in the center */
+  gap: 20px; /* Space between cards */
+}
+
+/* Card styling (you can modify as needed) */
+.Card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjust width as needed */
+  text-align: center;
+}
