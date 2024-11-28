@@ -27,12 +27,11 @@ function Body({ searchTerm, selectedCategory }) {
   const filteredData = foodData.filter((item) => {
     const matchesSearchTerm = item.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || item.type === selectedCategory;
-    // console.log(`Item: ${item.name}, Matches Search: ${matchesSearchTerm}, Matches Category: ${matchesCategory}`);
-
     return matchesSearchTerm && matchesCategory;
   });
 
   return (
+    <>
     <div className='main'>
       {loading ? (
         <div className='text-white'>Loading...</div>
@@ -51,7 +50,9 @@ function Body({ searchTerm, selectedCategory }) {
         </div>
       )}
     </div>
-  );
+
+</>
+      );
 }
 
 export default Body;
